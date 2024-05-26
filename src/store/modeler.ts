@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
 import type { Moddle } from 'moddle'
-import type Modeler from 'bpmn-js/lib/Modeler'
+import Modeler from 'bpmn-js/lib/Modeler'
 import type Modeling from 'bpmn-js/lib/features/modeling/Modeling'
 import type Canvas from 'diagram-js/lib/core/Canvas'
 import type ElementRegistry from 'diagram-js/lib/core/ElementRegistry'
 import { toRaw } from 'vue'
+import { store } from '.'
 
 type ModelerStore = {
   activeElement: BpmnElement | undefined
@@ -26,7 +27,7 @@ const defaultState: ModelerStore = {
   elementRegistry: undefined
 }
 
-export default defineStore('modeler', {
+export const useModelerStore = defineStore('modeler', {
   state: (): ModelerStore => defaultState,
   getters: {
     getActive: (state) => toRaw(state.activeElement),
@@ -55,3 +56,9 @@ export default defineStore('modeler', {
     }
   }
 })
+
+export default useModelerStore
+
+export function useModelerStoreHook() {
+  return useModelerStore(store)
+}

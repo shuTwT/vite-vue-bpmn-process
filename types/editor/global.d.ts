@@ -5,6 +5,10 @@ declare global {
   interface Window {
     bpmnInstances: any
     __messageBox: MessageApiInjection
+    trustOrigin: string
+    setModelXml: (xml: string) => Promise<any>
+    getModelXml: () => Promise<any>
+    initModelXml: (xml: string) => Promise<any>
   }
 
   type BpmnElement = ElementLike & { type: string }

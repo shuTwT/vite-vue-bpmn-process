@@ -7,6 +7,7 @@ import Aligns from '@/components/Toolbar/components/Aligns'
 import Scales from '@/components/Toolbar/components/Scales'
 import Commands from '@/components/Toolbar/components/Commands'
 import ExternalTools from '@/components/Toolbar/components/ExternalTools'
+import Saves from './components/Save'
 
 const Toolbar = defineComponent({
   name: 'ToolBar',
@@ -15,6 +16,7 @@ const Toolbar = defineComponent({
       <div class="toolbar">
         <NButtonGroup>
           <Imports></Imports>
+          <Saves></Saves>
           <Exports></Exports>
           <Previews></Previews>
         </NButtonGroup>
